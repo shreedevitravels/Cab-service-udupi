@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cab Service In Manipal | Safe & Reliable Taxi</title>
+<meta name="description" content="Best cab and taxi service in Manipal, Udupi & Mangalore Airport transfers. Safe outstation cabs and local travel solutions.">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+*{ box-sizing:border-box; margin:0; padding:0; font-family:'Segoe UI', Arial, sans-serif; }
+body{ background:#02070b; color:white; padding:20px; display:flex; flex-direction:column; align-items:center; min-height:100vh; justify-content:center; }
+.container{ width:100%; max-width:440px; background:linear-gradient(135deg, rgba(0,198,255,0.1), rgba(2,15,28,0.95)); border:1px solid rgba(0,198,255,0.3); border-radius:26px; padding:24px; box-shadow:0 15px 35px rgba(0,0,0,0.7); backdrop-filter:blur(15px); margin:20px 0; }
+.header{ text-align:center; margin-bottom:20px; }
+.header h1{ font-size:22px; color:#00c6ff; text-transform:uppercase; letter-spacing:.8px; margin-bottom:4px; font-weight:800; }
+.header p{ font-size:12px; color:#aaa; font-style:italic; }
+
+.input-box{ margin-bottom:14px; }
+.input-box label{ display:block; font-size:12px; color:#ddd; margin-bottom:5px; font-weight:bold; }
+.input-box input{ width:100%; padding:12px 14px; border-radius:14px; border:1px solid rgba(255,255,255,0.2); background:rgba(255,255,255,0.06); color:white; font-size:13.5px; outline:none; transition:.3s; }
+.input-box input:focus{ border-color:#00c6ff; background:rgba(0,198,255,0.1); box-shadow:0 0 10px rgba(0,198,255,0.3); }
+.book-btn{ width:100%; padding:14px; border:none; border-radius:25px; background:linear-gradient(45deg, #00c6ff, #0072ff); color:white; font-size:14.5px; font-weight:bold; cursor:pointer; box-shadow:0 4px 15px rgba(0,114,255,0.4); margin-top:8px; margin-bottom:20px; transition:.3s; }
+.book-btn:hover{ transform:translateY(-2px); box-shadow:0 0 20px rgba(0,198,255,0.7); }
+
+/* PROFESSIONAL ABOUT US SECTION (Shifted Below Booking) */
+.about-section{ background:rgba(255,255,255,0.04); border:1px solid rgba(0,198,255,0.25); border-radius:20px; padding:18px; margin-bottom:18px; text-align:left; }
+.about-tabs{ display:flex; gap:8px; margin-bottom:12px; }
+.tab-btn{ flex:1; padding:7px; font-size:12px; font-weight:bold; background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.1); color:#aaa; border-radius:12px; cursor:pointer; transition:.3s; }
+.tab-btn.active{ background:rgba(0,198,255,0.25); border-color:#00c6ff; color:#00c6ff; box-shadow:0 0 10px rgba(0,198,255,0.3); }
+.about-content{ font-size:12.5px; color:#cbd5e1; line-height:1.6; display:none; }
+.about-content.active{ display:block; }
+.about-content ul{ margin-top:8px; padding-left:16px; }
+.about-content li{ margin-bottom:4px; color:#e2e8f0; }
+
+/* QUICK CONNECT BOX STYLES */
+.connect-box{ background:rgba(0,198,255,0.05); border:1px solid rgba(0,198,255,0.2); border-radius:20px; padding:16px; margin-top:10px; text-align:center; }
+.connect-box p{ font-size:12.5px; color:#cbd5e1; margin-bottom:12px; font-weight:600; }
+.connect-buttons{ display:grid; grid-template-columns:repeat(2, 1fr); gap:8px; }
+.connect-btn{ padding:11px 8px; border-radius:14px; text-decoration:none; font-size:12px; font-weight:bold; display:flex; align-items:center; justify-content:center; gap:6px; transition:.3s; border:1px solid rgba(255,255,255,0.1); }
+.connect-btn i{ font-size:15px; }
+
+.btn-call{ background:rgba(52, 199, 89, 0.15); color:#34c759; border-color:rgba(52,199,89,0.3); }
+.btn-call:hover{ background:#34c759; color:white; }
+
+.btn-whatsapp{ background:rgba(37, 211, 102, 0.15); color:#25d366; border-color:rgba(37,211,102,0.3); }
+.btn-whatsapp:hover{ background:#25d366; color:white; }
+
+.btn-insta{ background:rgba(225, 48, 108, 0.15); color:#e1306c; border-color:rgba(225,48,108,0.3); }
+.btn-insta:hover{ background:#e1306c; color:white; }
+
+.btn-gmail{ background:rgba(234, 67, 53, 0.15); color:#ea4335; border-color:rgba(234,67,53,0.3); }
+.btn-gmail:hover{ background:#ea4335; color:white; }
+
+.btn-web{ background:rgba(0, 198, 255, 0.15); color:#00c6ff; border-color:rgba(0,198,255,0.3); grid-column: span 2; }
+.btn-web:hover{ background:#00c6ff; color:white; }
+
+.contact-footer{ text-align:center; margin-top:14px; font-size:11.5px; color:#888; }
+
+/* PROFESSIONAL POPUP MODAL */
+.modal-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.85); backdrop-filter:blur(10px); display:none; align-items:center; justify-content:center; z-index:9999; padding:16px; }
+.modal-card{ width:100%; max-width:360px; background:linear-gradient(135deg, rgba(0,198,255,0.15), rgba(2,12,22,0.95)); border:1px solid rgba(0,198,255,0.4); border-radius:26px; padding:26px 20px; text-align:center; box-shadow:0 15px 50px rgba(0,0,0,0.8), 0 0 30px rgba(0,198,255,0.25); animation:modalPop 0.3s cubic-bezier(0.175,0.885,0.32,1.275); }
+@keyframes modalPop{ from{ opacity:0; transform:scale(0.85); } to{ opacity:1; transform:scale(1); } }
+.modal-card i{ font-size:45px; color:#00e676; margin-bottom:12px; text-shadow:0 0 20px rgba(0,230,118,0.6); }
+.modal-card.error i{ color:#ff5252; text-shadow:0 0 20px rgba(255,82,82,0.6); }
+.modal-card h3{ font-size:18px; color:white; margin-bottom:6px; font-weight:800; }
+.modal-card p{ font-size:13px; color:#cbd5e1; margin-bottom:20px; line-height:1.5; }
+.modal-btn{ width:100%; padding:12px; border-radius:20px; background:linear-gradient(45deg, #00c853, #00e676); border:none; color:white; font-size:13.5px; font-weight:bold; cursor:pointer; box-shadow:0 4px 15px rgba(0,200,83,0.4); transition:.3s; display:inline-flex; align-items:center; justify-content:center; gap:6px; }
+.modal-btn.error-btn{ background:linear-gradient(45deg, #ef4444, #dc2626); box-shadow:0 4px 15px rgba(239,68,68,0.4); }
+.modal-btn:hover{ transform:translateY(-2px); }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Cab Service In Manipal</h1>
+        <p>Your Journey, Our Responsibility</p>
+    </div>
+
+    <div class="input-box">
+        <label>📍 Pickup Location</label>
+        <input type="text" id="pickup" placeholder="Enter pickup location">
+    </div>
+
+    <div class="input-box">
+        <label>🏁 Drop Location</label>
+        <input type="text" id="drop" placeholder="Enter destination">
+    </div>
+
+    <div class="input-box">
+        <label>📅 Travel Date</label>
+        <input type="date" id="date">
+    </div>
+
+    <div class="input-box">
+        <label>⏰ Travel Time</label>
+        <input type="time" id="time">
+    </div>
+
+    <button class="book-btn" onclick="openPopup()">🚀 Book via WhatsApp</button>
+
+    <!-- DETAILED PROFESSIONAL ABOUT US SECTION (Now below Book Button) -->
+    <div class="about-section">
+        <div class="about-tabs">
+            <button class="tab-btn active" onclick="switchTab('en')">English</button>
+            <button class="tab-btn" onclick="switchTab('kn')">ಕನ್ನಡ</button>
+        </div>
+        <div id="about-en" class="about-content active">
+            <b>Welcome to Cab Service In Manipal</b> — Your most trusted and dependable travel partner across Manipal, Udupi, and Mangalore Airport transfers. We specialize in providing safe, comfortable, and affordable local and outstation taxi services.
+            <ul>
+                <li>24/7 Availability for Airport & Railway Drops</li>
+                <li>Clean, Sanitized & Well-Maintained Cabs</li>
+                <li>Experienced, Professional & Polite Drivers</li>
+                <li>Transparent Pricing with No Hidden Charges</li>
+            </ul>
+        </div>
+        <div id="about-kn" class="about-content">
+            <b>ಕಾಬ್ ಸೇರ್ವಿಸ್ ಇನ್ ಮಣಿಪಾಲ್</b> ಗೆ ಸ್ವಾಗತ — ಮಣಿಪಾಲ್, ಉಡುಪಿ ಹಾಗೂ ಮಂಗಳೂರು ಏರ್‌ಪೋರ್ಟ್ ಪ್ರಯಾಣಕ್ಕಾಗಿ ಅತ್ಯಂತ ವಿಶ್ವಾಸಾರ್ಹ ಮತ್ತು ಸುರಕ್ಷಿತ ಟ್ಯಾಕ್ಸಿ ಸೇವೆಯಾಗಿದೆ. ನಾವು ಸ್ಥಳೀಯ ಸಂಚಾರ ಹಾಗೂ ಹೊರೂರು ಪ್ರವಾಸಗಳಿಗೆ ಅತ್ಯುತ್ತಮ ಸೌಲಭ್ಯ ಒದಗಿಸುತ್ತೇವೆ.
+            <ul>
+                <li>24/7 ಏರ್‌ಪೋರ್ಟ್ ಹಾಗೂ ರೈಲ್ವೆ ಡ್ರಾಪ್ ಸೇವೆ</li>
+                <li>ಸ್ವಚ್ಛ ಮತ್ತು ಸುರಕ್ಷಿತ ವಾಹನಗಳ ವ್ಯವಸ್ಥೆ</li>
+                <li>ಅನುಭವಿ ಹಾಗೂ ವೃತ್ತಿಪರ ಚಾಲಕರು</li>
+                <li>ಯಾವುದೇ ಹೆಚ್ಚುವರಿ ಶುಲ್ಕವಿಲ್ಲದ ನಿಖರ ದರ</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- QUICK CONNECT BOX (Call, WhatsApp, Instagram, Gmail, Website) -->
+    <div class="connect-box">
+        <p>Connect with Shree Devi Travels</p>
+        <div class="connect-buttons">
+            <a href="tel:6362635718" class="connect-btn btn-call">
+                <i class="fa-solid fa-phone"></i> Call Now
+            </a>
+            <a href="https://wa.me/916362635718?text=Hello%20Shree%20Devi%20Travels,%20I%20want%20to%20know%20more%20about%20cab%20service." target="_blank" class="connect-btn btn-whatsapp">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.instagram.com/shree_devitravels_manipal?stkn=MWw0NDBnOHc1ZXJnbA==" target="_blank" class="connect-btn btn-insta">
+                <i class="fa-brands fa-instagram"></i> Instagram
+            </a>
+            <a href="mailto:officialpreethucreation@gmail.com?subject=Cab%20Booking%20Inquiry" class="connect-btn btn-gmail">
+                <i class="fa-solid fa-envelope"></i> Gmail Us
+            </a>
+            <a href="https://shreedevitravels.github.io/Shree_devi_travels_manipal/" target="_blank" class="connect-btn btn-web">
+                <i class="fa-solid fa-globe"></i> Visit Official Website
+            </a>
+        </div>
+    </div>
+
+    <div class="contact-footer">
+        <p>© 2026 Shree Devi Travels Manipal. All Rights Reserved.</p>
+    </div>
+</div>
+
+<!-- PROFESSIONAL POPUP MODAL -->
+<div class="modal-overlay" id="customModal">
+    <div class="modal-card" id="modalCardBox">
+        <i id="modalIcon" class="fa-solid fa-circle-check"></i>
+        <h3 id="modalTitle">Booking Verified!</h3>
+        <p id="modalDesc">Your details have been successfully prepared. Click below to connect directly with our WhatsApp booking desk.</p>
+        <button class="modal-btn" id="modalActionBtn" onclick="proceedToWhatsApp()">
+            <i class="fa-brands fa-whatsapp"></i> Open WhatsApp Now
+        </button>
+    </div>
+</div>
+
+<script>
+let whatsappURL = "";
+
+function switchTab(lang) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.about-content').forEach(content => content.classList.remove('active'));
+    
+    if(lang === 'en') {
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+        document.getElementById('about-en').classList.add('active');
+    } else {
+        document.querySelectorAll('.tab-btn')[1].classList.add('active');
+        document.getElementById('about-kn').classList.add('active');
+    }
+}
+
+function openPopup(){
+    let pickup = document.getElementById("pickup").value.trim();
+    let drop = document.getElementById("drop").value.trim();
+    let date = document.getElementById("date").value;
+    let time = document.getElementById("time").value;
+
+    const modalBox = document.getElementById("modalCardBox");
+    const modalIcon = document.getElementById("modalIcon");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalBtn = document.getElementById("modalActionBtn");
+
+    if(!pickup || !drop || !date || !time){
+        modalBox.className = "modal-card error";
+        modalIcon.className = "fa-solid fa-circle-exclamation";
+        modalTitle.innerText = "Missing Details!";
+        modalDesc.innerText = "Please fill in all the required fields: pickup location, drop location, date, and time.";
+        modalBtn.className = "modal-btn error-btn";
+        modalBtn.innerHTML = "Try Again";
+        modalBtn.onclick = closePopup;
+        
+        document.getElementById("customModal").style.display = "flex";
+        return;
+    }
+
+    let msg = `🚖 CAB SERVICE IN MANIPAL\n━━━━━━━━━━━━━━━━━━\n🚗 QUICK BOOKING REQUEST\n\n📍 Pickup: ${pickup}\n🏁 Drop: ${drop}\n📅 Date: ${date}\n⏰ Time: ${time}\n━━━━━━━━━━━━━━━━━━\nYour Journey, Our Responsibility`;
+
+    whatsappURL = "https://wa.me/916362635718?text=" + encodeURIComponent(msg);
+
+    modalBox.className = "modal-card";
+    modalIcon.className = "fa-solid fa-circle-check";
+    modalTitle.innerText = "Booking Verified!";
+    modalDesc.innerText = "Your details are ready. Click below to connect directly with our WhatsApp booking desk.";
+    modalBtn.className = "modal-btn";
+    modalBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Open WhatsApp Now';
+    modalBtn.onclick = proceedToWhatsApp;
+    
+    document.getElementById("customModal").style.display = "flex";
+}
+
+function proceedToWhatsApp(){
+    document.getElementById("customModal").style.display = "none";
+    window.open(whatsappURL, "_blank");
+}
+
+function closePopup(){
+    document.getElementById("customModal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
