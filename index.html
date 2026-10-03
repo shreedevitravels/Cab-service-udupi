@@ -69,13 +69,23 @@ body::after {
 
 .container{ width:100%; max-width:440px; background:rgba(12, 12, 18, 0.78); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border:1px solid rgba(255, 255, 255, 0.18); border-radius:24px; padding:24px; box-shadow:0 25px 60px rgba(0,0,0,0.85); z-index: 2; }
 
-.top-bar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:12px; }
+/* LANGUAGE SWITCHER BAR */
+.lang-bar { display: flex; gap: 6px; margin-bottom: 16px; justify-content: flex-end; }
+.lang-btn { background: #18181b; border: 1px solid #27272a; color: #a1a1aa; padding: 5px 10px; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; transition: 0.2s; }
+.lang-btn.active { background: #38bdf8; color: black; border-color: #38bdf8; }
+
+.top-bar{ display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:12px; }
 .logo{ font-size:15px; font-weight:900; letter-spacing:1px; color:white; text-transform:uppercase; }
 .top-actions{ display:flex; gap:10px; align-items:center; }
 .login-btn{ color:white; text-decoration:none; font-size:13px; font-weight:600; }
 .signup-btn{ background:white; color:black; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:13px; font-weight:700; }
 
 .main-title{ font-size:32px; font-weight:800; margin-bottom:20px; color:white; line-height:1.2; }
+
+/* TRIP TYPE SELECTOR */
+.trip-types { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 16px; }
+.trip-btn { background: #18181b; border: 1px solid #27272a; color: #a1a1aa; padding: 10px 6px; border-radius: 12px; font-size: 11.5px; font-weight: 700; cursor: pointer; text-align: center; transition: 0.2s; }
+.trip-btn.active { background: #27272a; border-color: white; color: white; }
 
 /* SCHEDULE DROPDOWN */
 .schedule-box{ position:relative; margin-bottom:16px; width:fit-content; }
@@ -86,7 +96,7 @@ body::after {
 
 /* TATA TAIZOR SELECTION */
 .cab-types{ display:flex; margin-bottom:16px; }
-.cab-card{ background:#27272a; border:1px solid white; border-radius:16px; padding:16px; text-align:center; width:100%; cursor:pointer; }
+.cab-card{ background:#27272a; border:1px solid white; border-radius:16px; padding:16px; text-align:center; width:100%; }
 .cab-card i{ font-size:28px; color:white; margin-bottom:6px; display:block; }
 .cab-card .cab-name{ font-size:14px; font-weight:700; color:white; display:block; margin-bottom:2px; }
 .cab-card .cab-price{ font-size:12px; color:#38bdf8; display:block; }
@@ -99,9 +109,20 @@ body::after {
 .prices-btn{ width:100%; padding:16px; border:none; border-radius:16px; background:white; color:black; font-size:15px; font-weight:800; cursor:pointer; margin-top:4px; margin-bottom:12px; transition:.2s; }
 .prices-btn:hover{ background:#e4e4e7; }
 
-/* CALLBACK BUTTON */
-.fare-btn { width: 100%; padding: 12px; border: 1px solid rgba(34, 197, 94, 0.4); border-radius: 14px; background: rgba(34, 197, 94, 0.08); color: #22c55e; font-size: 13.5px; font-weight: 700; cursor: pointer; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
+/* BUTTONS */
+.fare-btn { width: 100%; padding: 12px; border: 1px solid rgba(34, 197, 94, 0.4); border-radius: 14px; background: rgba(34, 197, 94, 0.08); color: #22c55e; font-size: 13.5px; font-weight: 700; cursor: pointer; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
 .fare-btn:hover { background: rgba(34, 197, 94, 0.18); }
+
+.history-btn { width: 100%; padding: 12px; border: 1px solid rgba(56, 189, 248, 0.4); border-radius: 14px; background: rgba(56, 189, 248, 0.08); color: #38bdf8; font-size: 13.5px; font-weight: 700; cursor: pointer; margin-bottom: 12px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
+.history-btn:hover { background: rgba(56, 189, 248, 0.18); }
+
+.sos-btn { width: 100%; padding: 12px; border: 1px solid rgba(239, 68, 68, 0.4); border-radius: 14px; background: rgba(239, 68, 68, 0.08); color: #ef4444; font-size: 13.5px; font-weight: 700; cursor: pointer; margin-bottom: 20px; display: flex; align-items: center; justify-content: center; gap: 8px; transition: 0.2s; }
+.sos-btn:hover { background: rgba(239, 68, 68, 0.18); }
+
+/* PAYMENT METHODS BADGE */
+.payment-badge { background: #18181b; border: 1px solid #27272a; border-radius: 16px; padding: 12px; margin-bottom: 20px; text-align: center; }
+.payment-badge p { font-size: 11.5px; color: #a1a1aa; margin-bottom: 8px; font-weight: 600; }
+.payment-icons { display: flex; justify-content: center; gap: 16px; font-size: 20px; color: #d4d4d8; }
 
 /* TRUST BADGE */
 .trust-badge-card{ background:rgba(24, 24, 27, 0.7); border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:14px; margin-bottom:20px; display:flex; align-items:center; justify-content:space-around; text-align:center; }
@@ -130,36 +151,55 @@ body::after {
 
 /* MODALS */
 .modal-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.85); display:none; align-items:center; justify-content:center; z-index:9999; padding:16px; }
-.modal-card{ width:100%; max-width:340px; background:#18181b; border:1px solid #27272a; border-radius:20px; padding:24px 20px; text-align:center; }
+.modal-card{ width:100%; max-width:340px; background:#18181b; border:1px solid #27272a; border-radius:20px; padding:24px 20px; text-align:center; max-height:80vh; overflow-y:auto; }
 .modal-card i{ font-size:40px; color:#22c55e; margin-bottom:10px; }
 .modal-card.error i{ color:#ef4444; }
 .modal-card h3{ font-size:18px; color:white; margin-bottom:6px; font-weight:700; }
 .modal-card p{ font-size:12.5px; color:#a1a1aa; margin-bottom:18px; line-height:1.4; }
-.modal-btn{ width:100%; padding:12px; border-radius:12px; background:#22c55e; border:none; color:white; font-size:14px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px; }
+.modal-btn{ width:100%; padding:12px; border-radius:12px; background:#22c55e; border:none; color:white; font-size:14px; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:6px; margin-top: 8px; }
 .modal-btn.error-btn{ background:#ef4444; }
+
+/* HISTORY STYLES */
+.history-item { background: #27272a; border-radius: 12px; padding: 12px; margin-bottom: 10px; text-align: left; font-size: 12px; color: #d4d4d8; }
+.history-item span { color: #38bdf8; font-weight: 700; }
+.repeat-ride-btn { background: #22c55e; color: white; border: none; padding: 6px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; cursor: pointer; margin-top: 8px; display: inline-flex; align-items: center; gap: 4px; }
 </style>
 </head>
 <body>
 
 <div class="container">
+    <!-- LANGUAGE SWITCHER BAR -->
+    <div class="lang-bar">
+        <button class="lang-btn active" id="btnEn" onclick="changeLang('en')">English</button>
+        <button class="lang-btn" id="btnKn" onclick="changeLang('kn')">ಕನ್ನಡ</button>
+        <button class="lang-btn" id="btnTu" onclick="changeLang('tu')">ತುಳು</button>
+    </div>
+
     <div class="top-bar">
-        <div class="logo">Cab Service</div>
+        <div class="logo" data-key="logoText">Cab Service</div>
         <div class="top-actions">
-            <a href="tel:+916362635718" class="login-btn">Call</a>
-            <a href="https://wa.me/916362635718" target="_blank" class="signup-btn">WhatsApp</a>
+            <a href="tel:+916362635718" class="login-btn" data-key="callText">Call</a>
+            <a href="https://wa.me/916362635718" target="_blank" class="signup-btn" data-key="whatsappText">WhatsApp</a>
         </div>
     </div>
 
-    <h1 class="main-title">Request a ride</h1>
+    <h1 class="main-title" data-key="mainTitle">Request a ride</h1>
+
+    <!-- TRIP TYPE SELECTOR -->
+    <div class="trip-types">
+        <div class="trip-btn active" id="tripLocal" onclick="setTripType('Local')" data-key="tripLocal">Local</div>
+        <div class="trip-btn" id="tripAirport" onclick="setTripType('Airport')" data-key="tripAirport">Airport</div>
+        <div class="trip-btn" id="tripOutstation" onclick="setTripType('Outstation')" data-key="tripOutstation">Outstation</div>
+    </div>
 
     <!-- SCHEDULE DROPDOWN -->
     <div class="schedule-box">
         <button class="schedule-btn" onclick="toggleDropdown()">
-            <i class="fa-regular fa-clock"></i> <span id="scheduleText">Pickup now</span> <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
+            <i class="fa-regular fa-clock"></i> <span id="scheduleText" data-key="scheduleNow">Pickup now</span> <i class="fa-solid fa-chevron-down" style="font-size:10px;"></i>
         </button>
         <div class="schedule-dropdown" id="scheduleDropdown">
-            <div class="schedule-option" onclick="setSchedule('Pickup now')">Pickup now</div>
-            <div class="schedule-option" onclick="setSchedule('Schedule later')">Schedule later</div>
+            <div class="schedule-option" onclick="setSchedule('Pickup now', 'scheduleNow')" data-key="scheduleNow">Pickup now</div>
+            <div class="schedule-option" onclick="setSchedule('Schedule later', 'scheduleLater')" data-key="scheduleLater">Schedule later</div>
         </div>
     </div>
 
@@ -168,16 +208,16 @@ body::after {
         <div class="cab-card">
             <i class="fa-solid fa-car"></i>
             <span class="cab-name">Tata Taizor</span>
-            <span class="cab-price">Reliable Cab</span>
+            <span class="cab-price" data-key="cabPriceText">Reliable Cab</span>
         </div>
     </div>
 
     <div class="input-box">
-        <input type="text" id="pickup" placeholder="Enter pickup location">
+        <input type="text" id="pickup" placeholder="Enter pickup location" data-placeholder="pickupPlaceholder">
     </div>
 
     <div class="input-box">
-        <input type="text" id="drop" placeholder="Enter dropoff location">
+        <input type="text" id="drop" placeholder="Enter dropoff location" data-placeholder="dropPlaceholder">
     </div>
 
     <div class="input-box" id="dateBox" style="display:none;">
@@ -189,87 +229,108 @@ body::after {
     </div>
 
     <div class="input-box">
-        <textarea id="message" rows="2" placeholder="Additional note (Optional)..."></textarea>
+        <textarea id="message" rows="2" placeholder="Additional note (Optional)..." data-placeholder="notePlaceholder"></textarea>
     </div>
 
-    <button class="prices-btn" onclick="openPopup()">See prices & Book</button>
+    <button class="prices-btn" onclick="openPopup()" data-key="bookBtnText">See prices & Book</button>
 
     <!-- REQUEST CALL BACK BUTTON -->
     <button class="fare-btn" onclick="openCallbackModal()">
-        <i class="fa-solid fa-phone-volume"></i> Request a Call Back
+        <i class="fa-solid fa-phone-volume"></i> <span data-key="callbackBtnText">Request a Call Back</span>
     </button>
+
+    <!-- VIEW HISTORY BUTTON -->
+    <button class="history-btn" onclick="openHistoryModal()">
+        <i class="fa-solid fa-clock-rotate-left"></i> <span data-key="historyBtnText">View Ride History</span>
+    </button>
+
+    <!-- EMERGENCY SOS BUTTON -->
+    <button class="sos-btn" onclick="openSosModal()">
+        <i class="fa-solid fa-triangle-exclamation"></i> <span data-key="sosBtnText">Emergency SOS Help</span>
+    </button>
+
+    <!-- PAYMENT METHODS BADGE -->
+    <div class="payment-badge">
+        <p data-key="paymentTitle">Accepted Payment Methods</p>
+        <div class="payment-icons">
+            <i class="fa-brands fa-google-pay" title="Google Pay"></i>
+            <i class="fa-solid fa-indian-rupee-sign" title="PhonePe / UPI"></i>
+            <i class="fa-solid fa-wallet" title="Paytm"></i>
+            <i class="fa-solid fa-money-bill-wave" title="Cash"></i>
+        </div>
+    </div>
 
     <!-- TRUST BADGE -->
     <div class="trust-badge-card">
         <div class="trust-item">
-            <i class="fa-solid fa-star" style="color:#fbbf24;"></i> Rating
+            <i class="fa-solid fa-star" style="color:#fbbf24;"></i> <span data-key="ratingLabel">Rating</span>
             <span>4.9 / 5.0</span>
         </div>
         <div class="trust-divider"></div>
         <div class="trust-item">
-            <i class="fa-solid fa-shield-halved" style="color:#22c55e;"></i> Verified
-            <span>500+ Rides</span>
+            <i class="fa-solid fa-shield-halved" style="color:#22c55e;"></i> <span data-key="verifiedLabel">Verified</span>
+            <span data-key="ridesCount">500+ Rides</span>
         </div>
         <div class="trust-divider"></div>
         <div class="trust-item">
-            <i class="fa-solid fa-clock-rotate-left" style="color:#38bdf8;"></i> Timing
-            <span>24/7 Available</span>
+            <i class="fa-solid fa-clock-rotate-left" style="color:#38bdf8;"></i> <span data-key="timingLabel">Timing</span>
+            <span data-key="timingValue">24/7 Available</span>
         </div>
     </div>
 
-    <!-- UBER STYLE ADDITIONAL SECTIONS FROM SCREENSHOTS -->
+    <!-- UBER STYLE ADDITIONAL SECTIONS -->
     <div class="uber-section">
-        <h2>Ride options</h2>
-        <p>There's more than one way to move with Cab Service, no matter where you are or where you're headed next.</p>
+        <h2 data-key="rideOptionsTitle">Ride options</h2>
+        <p data-key="rideOptionsDesc">There's more than one way to move with Cab Service, no matter where you are or where you're headed next.</p>
         
         <div class="uber-card">
-            <h3>Airport Transfers</h3>
-            <p>You can request a ride to and from Mangalore airport. Schedule a ride to the airport for one less thing to worry about.</p>
+            <h3 data-key="airportTitle">Airport Transfers</h3>
+            <p data-key="airportDesc">You can request a ride to and from Mangalore airport. Schedule a ride to the airport for one less thing to worry about.</p>
         </div>
 
         <div class="uber-card">
-            <h3>Local & Outstation Cities</h3>
-            <p>Our service is available across Manipal, Udupi, and Mangalore, so you can request a ride even when you're far from home.</p>
+            <h3 data-key="localTitle">Local & Outstation Cities</h3>
+            <p data-key="localDesc">Our service is available across Manipal, Udupi, and Mangalore, so you can request a ride even when you're far from home.</p>
         </div>
 
         <div class="uber-card">
-            <h3>Looking for business solutions?</h3>
-            <p>Get information about how companies leverage Cab Service for Business:</p>
+            <h3 data-key="businessTitle">Looking for business solutions?</h3>
+            <p data-key="businessDesc">Get information about how companies leverage Cab Service for Business:</p>
             <ul>
-                <li>Business travel</li>
-                <li>Courtesy rides</li>
-                <li>Item delivery</li>
+                <li data-key="b1">Business travel</li>
+                <li data-key="b2">Courtesy rides</li>
+                <li data-key="b3">Item delivery</li>
             </ul>
         </div>
     </div>
 
     <div class="connect-box">
-        <p>Connect with Cab Service</p>
+        <p data-key="connectText">Connect with Cab Service</p>
         <div class="connect-buttons">
             <a href="tel:+916362635718" class="connect-btn">
-                <i class="fa-solid fa-phone" style="color:#22c55e;"></i> Call Now
+                <i class="fa-solid fa-phone" style="color:#22c55e;"></i> <span data-key="callNow">Call Now</span>
             </a>
             <a href="https://wa.me/916362635718?text=Hello" target="_blank" class="connect-btn">
-                <i class="fa-brands fa-whatsapp" style="color:#22c55e;"></i> WhatsApp
+                <i class="fa-brands fa-whatsapp" style="color:#22c55e;"></i> <span data-key="msgSupport">24/7 Msg Support</span>
             </a>
             <a href="https://www.instagram.com/preetham_nayak_1?stkn=ZGJjdmR2bWYyeHNr" target="_blank" class="connect-btn">
                 <i class="fa-brands fa-instagram" style="color:#ec4899;"></i> Instagram
             </a>
             <a href="mailto:officialpreethucreation@gmail.com" class="connect-btn">
-                <i class="fa-solid fa-envelope" style="color:#ef4444;"></i> Email Us
+                <i class="fa-solid fa-envelope" style="color:#ef4444;"></i> <span data-key="emailUs">Email Us</span>
             </a>
-            <a href="https://api.whatsapp.com/send?text=Hey!%20Check%20out%20Cab%20Service%20in%20Manipal%20for%20safe%20and%20reliable%20taxis:%20https://shreedevitravels.github.io/Shree_devi_travels_manipal/" target="_blank" class="connect-btn">
-                <i class="fa-solid fa-share-nodes" style="color:#22c55e;"></i> Share App
+            <a href="https://api.whatsapp.com/send?text=Hey!%20Check%20out%20Cab%20Service%20in%20Manipal..." target="_blank" class="connect-btn">
+                <i class="fa-solid fa-share-nodes" style="color:#22c55e;"></i> <span data-key="shareApp">Share App</span>
             </a>
             <a href="https://shreedevitravels.github.io/Shree_devi_travels_manipal/" target="_blank" class="connect-btn btn-web">
-                <i class="fa-solid fa-globe" style="color:#38bdf8;"></i> Official Website
+                <i class="fa-solid fa-globe" style="color:#38bdf8;"></i> <span data-key="officialWeb">Official Website</span>
             </a>
         </div>
     </div>
 
     <div class="contact-footer">
-        <p>© 2026 Cab Service Manipal. All Rights Reserved.</p>
-        <p>Maintained & Developed by <a href="https://www.instagram.com/preetham_nayak_1?stkn=ZGJjdmR2bWYyeHNr" target="_blank">Preetham Nayak</a> | v2.0</p>
+        <p data-key="footerRights">© 2026 Cab Service Manipal. All Rights Reserved.</p>
+        <p><span data-key="footerDev">Maintained & Developed by</span> <a href="https://www.instagram.com/preetham_nayak_1?stkn=ZGJjdmR2bWYyeHNr" target="_blank">Preetham Nayak</a> | v2.10</p>
     </div>
 </div>
 
@@ -277,11 +338,34 @@ body::after {
 <div class="modal-overlay" id="customModal">
     <div class="modal-card" id="modalCardBox">
         <i id="modalIcon" class="fa-solid fa-circle-check"></i>
-        <h3 id="modalTitle">Ready to Book</h3>
-        <p id="modalDesc">Click below to send details via WhatsApp.</p>
+        <h3 id="modalTitle" data-key="modalReadyTitle">Ready to Book</h3>
+        <p id="modalDesc" data-key="modalReadyDesc">Click below to send details via WhatsApp.</p>
         <button class="modal-btn" id="modalActionBtn" onclick="proceedToWhatsApp()">
-            <i class="fa-brands fa-whatsapp"></i> Open WhatsApp Now
+            <i class="fa-brands fa-whatsapp"></i> <span data-key="modalWaBtn">Open WhatsApp Now</span>
         </button>
+    </div>
+</div>
+
+<!-- HISTORY MODAL -->
+<div class="modal-overlay" id="historyModal">
+    <div class="modal-card">
+        <i class="fa-solid fa-clock-rotate-left" style="color:#38bdf8;"></i>
+        <h3 data-key="historyModalTitle">Ride History</h3>
+        <div id="historyListContainer" style="margin-bottom: 14px;"></div>
+        <button class="modal-btn" style="background:#27272a;" onclick="closeHistoryModal()" data-key="closeBtn">Close</button>
+    </div>
+</div>
+
+<!-- SOS EMERGENCY MODAL -->
+<div class="modal-overlay" id="sosModal">
+    <div class="modal-card">
+        <i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;"></i>
+        <h3 data-key="sosModalTitle">Emergency SOS Helpline</h3>
+        <p data-key="sosModalDesc">If you face any emergency during your ride, contact our 24/7 safety desk instantly.</p>
+        <a href="tel:+916362635718" class="modal-btn" style="background:#ef4444; text-decoration:none; margin-bottom:8px;">
+            <i class="fa-solid fa-phone"></i> <span data-key="sosCallBtn">Call Emergency Desk</span>
+        </a>
+        <button class="modal-btn" style="background:#27272a;" onclick="closeSosModal()" data-key="closeBtn">Close</button>
     </div>
 </div>
 
@@ -289,17 +373,194 @@ body::after {
 <div class="modal-overlay" id="callbackModal">
     <div class="modal-card">
         <i class="fa-solid fa-phone-volume" style="color:#22c55e;"></i>
-        <h3>Request a Call Back</h3>
-        <p>Enter your phone number and we will call you shortly.</p>
+        <h3 data-key="cbModalTitle">Request a Call Back</h3>
+        <p data-key="cbModalDesc">Enter your phone number and we will call you shortly.</p>
         <div class="input-box" style="margin-bottom: 14px;">
-            <input type="tel" id="callbackPhone" placeholder="Enter your mobile number">
+            <input type="tel" id="callbackPhone" placeholder="Enter your mobile number" data-placeholder="cbPhonePlaceholder">
         </div>
-        <button class="modal-btn" onclick="sendCallback()">Send Call Request</button>
-        <button class="modal-btn" style="background:#27272a; margin-top: 8px;" onclick="closeCallbackModal()">Cancel</button>
+        <button class="modal-btn" onclick="sendCallback()" data-key="cbSendBtn">Send Call Request</button>
+        <button class="modal-btn" style="background:#27272a;" onclick="closeCallbackModal()" data-key="cbCancelBtn">Cancel</button>
     </div>
 </div>
 
 <script>
+let selectedTripType = "Local";
+
+const translations = {
+    en: {
+        logoText: "Cab Service",
+        callText: "Call",
+        whatsappText: "WhatsApp",
+        mainTitle: "Request a ride",
+        tripLocal: "Local",
+        tripAirport: "Airport",
+        tripOutstation: "Outstation",
+        scheduleNow: "Pickup now",
+        scheduleLater: "Schedule later",
+        cabPriceText: "Reliable Cab",
+        pickupPlaceholder: "Enter pickup location",
+        dropPlaceholder: "Enter dropoff location",
+        notePlaceholder: "Additional note (Optional)...",
+        bookBtnText: "See prices & Book",
+        callbackBtnText: "Request a Call Back",
+        historyBtnText: "View Ride History",
+        sosBtnText: "Emergency SOS Help",
+        paymentTitle: "Accepted Payment Methods",
+        ratingLabel: "Rating",
+        verifiedLabel: "Verified",
+        ridesCount: "500+ Rides",
+        timingLabel: "Timing",
+        timingValue: "24/7 Available",
+        rideOptionsTitle: "Ride options",
+        rideOptionsDesc: "There's more than one way to move with Cab Service, no matter where you are or where you're headed next.",
+        airportTitle: "Airport Transfers",
+        airportDesc: "You can request a ride to and from Mangalore airport. Schedule a ride to the airport for one less thing to worry about.",
+        localTitle: "Local & Outstation Cities",
+        localDesc: "Our service is available across Manipal, Udupi, and Mangalore, so you can request a ride even when you're far from home.",
+        businessTitle: "Looking for business solutions?",
+        businessDesc: "Get information about how companies leverage Cab Service for Business:",
+        b1: "Business travel",
+        b2: "Courtesy rides",
+        b3: "Item delivery",
+        connectText: "Connect with Cab Service",
+        callNow: "Call Now",
+        msgSupport: "24/7 Msg Support",
+        emailUs: "Email Us",
+        shareApp: "Share App",
+        officialWeb: "Official Website",
+        footerRights: "© 2026 Cab Service Manipal. All Rights Reserved.",
+        footerDev: "Maintained & Developed by",
+        modalReadyTitle: "Ready to Book",
+        modalReadyDesc: "Click below to send details via WhatsApp.",
+        modalWaBtn: "Open WhatsApp Now",
+        historyModalTitle: "Ride History",
+        sosModalTitle: "Emergency SOS Helpline",
+        sosModalDesc: "If you face any emergency during your ride, contact our 24/7 safety desk instantly.",
+        sosCallBtn: "Call Emergency Desk",
+        closeBtn: "Close",
+        cbModalTitle: "Request a Call Back",
+        cbModalDesc: "Enter your phone number and we will call you shortly.",
+        cbPhonePlaceholder: "Enter your mobile number",
+        cbSendBtn: "Send Call Request",
+        cbCancelBtn: "Cancel"
+    },
+    kn: {
+        logoText: "ಕ್ಯಾಬ್ ಸೇವೆ",
+        callText: "ಕರೆ ಮಾಡಿ",
+        whatsappText: "ವಾಟ್ಸಾಪ್",
+        mainTitle: "ರೈಡ್ ಬುಕ್ ಮಾಡಿ",
+        tripLocal: "ಸ್ಥಳೀಯ",
+        tripAirport: "ಏರ್‌ಪೋರ್ಟ್",
+        tripOutstation: "ಹೊರೂರು",
+        scheduleNow: "ಈಗಲೇ ಪಿಕ್ಅಪ್",
+        scheduleLater: "ನಂತರ ಶೆಡ್ಯೂಲ್ ಮಾಡಿ",
+        cabPriceText: "ವಿಶ್ವಾಸಾರ್ಹ ಕ್ಯಾಬ್",
+        pickupPlaceholder: "ಪಿಕ್ಅಪ್ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ",
+        dropPlaceholder: "ಡ್ರಾಪ್ ಸ್ಥಳವನ್ನು ನಮೂದಿಸಿ",
+        notePlaceholder: "ಹೆಚ್ಚುವರಿ ಟಿಪ್ಪಣಿ (ಐಚ್ಛಿಕ)...",
+        bookBtnText: "ಬೆಲೆ ನೋಡಿ ಮತ್ತು ಬುಕ್ ಮಾಡಿ",
+        callbackBtnText: "ಕರೆಗಾಗಿ ವಿನಂತಿಸಿ",
+        historyBtnText: "ರೈಡ್ ಹಿಸ್ಟರಿ ತೂಲೆ",
+        sosBtnText: "ತುರ್ತು ಎಸ್‌ಒಎಸ್ ಸಹಾಯ",
+        paymentTitle: "ಸ್ವೀಕರಿಸುವ ಪಾವತಿ ವಿಧಾನಗಳು",
+        ratingLabel: "ರೇಟಿಂಗ್",
+        verifiedLabel: "ಪರಿಶೀಲಿಸಲಾಗಿದೆ",
+        ridesCount: "೫೦೦+ ರೈಡ್‌‌ಗಳು",
+        timingLabel: "ಸಮಯ",
+        timingValue: "೨೪/೭ ಲಭ್ಯವಿದೆ",
+        rideOptionsTitle: "ಪ್ರಯಾಣದ ಆಯ್ಕೆಗಳು",
+        rideOptionsDesc: "ಮಣಿಪಾಲದಲ್ಲಿ ಸುರಕ್ಷಿತ ಮತ್ತು ಆರಾಮದಾಯಕ ಪ್ರಯಾಣಕ್ಕಾಗಿ ನಮ್ಮ ಸೇವೆ ಲಭ್ಯವಿದೆ.",
+        airportTitle: "ವಿಮಾನ ನಿಲ್ದಾಣ ವರ್ಗಾವಣೆ",
+        airportDesc: "ಮಂಗಳೂರು ವಿಮಾನ ನಿಲ್ದಾಣಕ್ಕೆ ಮತ್ತು ಅಲ್ಲಿಂದ ಬರಲು ಕ್ಯಾಬ್ ಬುಕ್ ಮಾಡಿ.",
+        localTitle: "ಸ್ಥಳೀಯ ಮತ್ತು ಹೊರಗಿನ ಊರುಗಳು",
+        localDesc: "ನಮ್ಮ ಸೇವೆಯು ಮಣಿಪಾಲ, ಉಡುಪಿ ಮತ್ತು ಮಂಗಳೂರು ಸುತ್ತಮುತ್ತ ಲಭ್ಯವಿದೆ.",
+        businessTitle: "ವ್ಯಾಪಾರ ಸೇವೆಗಳು ಬೇಕೇ?",
+        businessDesc: "ಕಂಪನಿಗಳು ಮತ್ತು ಬ್ಯುಸಿನೆಸ್ ಪ್ರಯಾಣಕ್ಕಾಗಿ ವಿಶೇಷ ಸೇವೆಗಳು:",
+        b1: "ವ್ಯಾಪಾರ ಪ್ರಯಾಣ",
+        b2: "ಸೌಜನ್ಯದ ಸವಾರಿಗಳು",
+        b3: "ವಸ್ತು ವಿತರಣೆ",
+        connectText: "ನಮ್ಮನ್ನು ಸಂಪರ್ಕಿಸಿ",
+        callNow: "ಈಗ ಕರೆ ಮಾಡಿ",
+        msgSupport: "೨೪/೭ ಮೆಸೇಜ್ ಸಪೋರ್ಟ್",
+        emailUs: "ಇಮೇಲ್ ಕಳುಹಿಸಿ",
+        shareApp: "ಆಪ್ ಹಂಚಿಕೊಳ್ಳಿ",
+        officialWeb: "ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್",
+        footerRights: "© 2026 ಕ್ಯಾಬ್ ಸೇವೆ ಮಣಿಪಾಲ. ಎಲ್ಲ ಹಕ್ಕುಗಳನ್ನು ಕಾಯ್ದಿರಿಸಲಾಗಿದೆ.",
+        footerDev: "ನಿರ್ವಹಣೆ ಮತ್ತು ಅಭಿವೃದ್ಧಿ:",
+        modalReadyTitle: "ಬುಕ್ ಮಾಡಲು ಸಿದ್ಧವಾಗಿದೆ",
+        modalReadyDesc: "ವಾಟ್ಸಾಪ್ ಮೂಲಕ ವಿವರಗಳನ್ನು ಕಳುಹಿಸಲು ಕೆಳಗೆ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+        modalWaBtn: "ವಾಟ್ಸಾಪ್ ತೆರೆಯಿರಿ",
+        historyModalTitle: "ಹಿಂದಿನ ರೈಡ್‌ಗಳು",
+        sosModalTitle: "ತುರ್ತು ಎಸ್‌ಒಎಸ್ ಸಹಾಯವಾಣಿ",
+        sosModalDesc: "ಪ್ರಯಾಣದ ಸಮಯದಲ್ಲಿ ತುರ್ತು ಸಂದರ್ಭ ಎದುರಾದರೆ ತಕ್ಷಣ ನಮ್ಮ ಸಿಬ್ಬಂದಿಯನ್ನು ಸಂಪರ್ಕಿಸಿ.",
+        sosCallBtn: "ತುರ್ತು ಕರೆ ಮಾಡಿ",
+        closeBtn: "ಮುಚ್ಚಿ",
+        cbModalTitle: "ಕರೆಗಾಗಿ ವಿನಂತಿಸಿ",
+        cbModalDesc: "ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆಯನ್ನು ನಮೂದಿಸಿ, ನಾವು ಶೀಘ್ರದಲ್ಲೇ ನಿಮಗೆ ಕರೆ ಮಾಡುತ್ತೇವೆ.",
+        cbPhonePlaceholder: "ನಿಮ್ಮ ಮೊಬೈಲ್ ಸಂಖ್ಯೆ ಹಾಕಿ",
+        cbSendBtn: "ಕರೆ ವಿನಂತಿ ಕಳುಹಿಸಿ",
+        cbCancelBtn: "ರದ್ದುಮಾಡಿ"
+    },
+    tu: {
+        logoText: "ಕ್ಯಾಬ್ ಸೇವೆ",
+        callText: "ಕರೆ ಮಲ್ಪುಲೆ",
+        whatsappText: "ವಾಟ್ಸಾಪ್",
+        mainTitle: "ಕ್ಯಾಬ್ ಬುಕ್ ಮಲ್ಪುಲೆ",
+        tripLocal: "ಸ್ಥಳೀಯ",
+        tripAirport: "ಏರ್‌ಪೋರ್ಟ್",
+        tripOutstation: "ಊರುದ ಪ್ರಯಾಣ",
+        scheduleNow: "ಈಟ್‌ನ್ ಪಿಕ್ಅಪ್",
+        scheduleLater: "ಬೊಕ್ಕ ಶೆಡ್ಯೂಲ್ ಮಲ್ಪುಲೆ",
+        cabPriceText: "ಭರವಸೆದ ಕ್ಯಾಬ್",
+        pickupPlaceholder: "ಪಿಕ್ಅಪ್ ಜಾಗನ್ ಬರೆಯಿರಿ",
+        dropPlaceholder: "ಡ್ರಾಪ್ ಜಾಗನ್ ಬರೆಯಿರಿ",
+        notePlaceholder: "ವೇರೆ ಮಾಹಿತಿ ಉಂಡಾ (ಐಚ್ಛಿಕ)...",
+        bookBtnText: "ಬೆಲೆ ತೂದು ಬುಕ್ ಮಲ್ಪುಲೆ",
+        callbackBtnText: "ಕರೆ ಬರಿಯೆರೆ ವಿನಂತಿ ಮಲ್ಪುಲೆ",
+        historyBtnText: "ರೈಡ್ ಹಿಸ್ಟರಿ ತೂಲೆ",
+        sosBtnText: "ತುರ್ತು SOS ಸಹಾಯ",
+        paymentTitle: "ಪಾವತಿ ವಿಧಾನಲು",
+        ratingLabel: "ರೇಟಿಂಗ್",
+        verifiedLabel: "ಖಚಿತಪಡಿಸಲಾಗಿದೆ",
+        ridesCount: "೫೦೦+ ರೈಡ್‌ಲು",
+        timingLabel: "ಸಮಯ",
+        timingValue: "೨೪/೭ ಉಂಡು",
+        rideOptionsTitle: "ಪ್ರಯಾಣದ ಆಯ್ಕೆಲು",
+        rideOptionsDesc: "ಮಣಿಪಾಲ, ಉಡುಪಿ ಬುಕ್ಕೊ ಮಂಗಳೂರುಡ್ ಸುರಕ್ಷಿತ ಪ್ರಯಾಣ.",
+        airportTitle: "ಏರ್‌‌ಪೋರ್ಟ್ ಟ್ರಾನ್ಸ್‌ಫರ್",
+        airportDesc: "ಮಂಗಳೂರು ಏರ್ಪೋರ್ಟ್‌ಗ್ ಬೊಕ್ಕ ಆರ್ಡರ್ ಮನ್ಪುನ ವ್ಯವಸ್ಥೆ ಉಂಡು.",
+        localTitle: "ಸ್ಥಳೀಯ ಬೊಕ್ಕ ಊರುದ ಪ್ರಯಾಣ",
+        localDesc: "ಮಣಿಪಾಲ, ಉಡುಪಿ, ಮಂಗಳೂರುಡ್ ನಮ್ಮ ಸೇವೆ ಸಿಕ್ಕುಂಡು.",
+        businessTitle: "ಬ್ಯುಸಿನೆಸ್ ಸೇವೆಲು ಬೇಕಾ?",
+        businessDesc: "ಕಂಪನಿ ಬ್ಯುಸಿನೆಸ್ ಪ್ರಯಾಣಗ್ ವಿಶೇಷ ಸೌಲಭ್ಯ:",
+        b1: "ಬ್ಯುಸಿನೆಸ್ ಪ್ರಯಾಣ",
+        b2: "ವಿಶೇಷ ಸವಾರಿ",
+        b3: "ಪಾರ್ಸೆಲ್ / ವಸ್ತು ಸಾಗಾಟ",
+        connectText: "ನಮ್ಮೊಟ್ಟುಗು ಸಂಪರ್ಕ ಮಲ್ಪುಲೆ",
+        callNow: "ಕರೆ ಮಲ್ಪುಲೆ",
+        msgSupport: "೨೪/೭ ಮೆಸೇಜ್ ಸಪೋರ್ಟ್",
+        emailUs: "ಇಮೇಲ್ ಕಳುಪುಲೆ",
+        shareApp: "ಆಪ್ ಷೇರ್ ಮಲ್ಪುಲೆ",
+        officialWeb: "ಅಧಿಕೃತ ವೆಬ್‌ಸೈಟ್",
+        footerRights: "© 2026 ಕ್ಯಾಬ್ ಸೇವೆ ಮಣಿಪಾಲ. ಮಾತ ಹಕ್ಕು ಸುರಕ್ಷಿತ.",
+        footerDev: "ನಿರ್ವಹಣೆ ಬೊಕ್ಕ ನಿರ್ಮಾಣ:",
+        modalReadyTitle: "ಬುಕ್ ಮನ್ಪರೆ ತಯಾರಾತುಂಡು",
+        modalReadyDesc: "ವಾಟ್ಸಾಪ್ ಮೂಲಕ ಕಳುಹಿಸರೆ ತಿರ್ತ್ ಕ್ಲಿಕ್ ಮಲ್ಪುಲೆ.",
+        modalWaBtn: "ವಾಟ್ಸಾಪ್‌‌‌‌ಗ್ ಪೋಲೆ",
+        historyModalTitle: "ಹಿಂದಿನ ರೈಡ್‌ಲು",
+        sosModalTitle: "ತುರ್ತು SOS ಸಹಾಯವಾಣಿ",
+        sosModalDesc: "ಪ್ರಯಾಣದ ಸಮಯ ಎಮರ್ಜೆನ್ಸಿ ಬಂಡ ತಕ್ಷಣ ಎಂಕ್ಲೆನ್ ಕಾಂಟಾಕ್ಟ್ ಮನ್ಪುಲೆ.",
+        sosCallBtn: "ಎಮರ್ಜೆನ್ಸಿ ಕರೆ",
+        closeBtn: "ಮುಚ್ಚಿ",
+        cbModalTitle: "ಕರೆ ಬರಿಯೆರೆ ವಿನಂತಿ",
+        cbModalDesc: "ನಿಮ್ಮ ಫೋನ್ ನಂಬರ್ ಕೊರ್ಲೆ, ಎಂಕ್ಲೆ ಕರೆ ಮನ್ಪುವಾ.",
+        cbPhonePlaceholder: "ಫೋನ್ ನಂಬರ್ ಪಾಡ್ಲೆ",
+        cbSendBtn: "ಕರೆ ವಿನಂತಿ ಕಳುಪುಲೆ",
+        cbCancelBtn: "ವಜಾ ಮಲ್ಪುಲೆ"
+    }
+};
+
+let currentLang = 'en';
 let whatsappURL = "";
 let isScheduled = false;
 
@@ -308,16 +569,45 @@ window.addEventListener('DOMContentLoaded', () => {
     document.getElementById("date").min = today;
 });
 
+function setTripType(type) {
+    selectedTripType = type;
+    document.querySelectorAll('.trip-btn').forEach(btn => btn.classList.remove('active'));
+    if(type === 'Local') document.getElementById('tripLocal').classList.add('active');
+    if(type === 'Airport') document.getElementById('tripAirport').classList.add('active');
+    if(type === 'Outstation') document.getElementById('tripOutstation').classList.add('active');
+}
+
+function changeLang(lang) {
+    currentLang = lang;
+    document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+    if(lang === 'en') document.getElementById('btnEn').classList.add('active');
+    if(lang === 'kn') document.getElementById('btnKn').classList.add('active');
+    if(lang === 'tu') document.getElementById('btnTu').classList.add('active');
+
+    const t = translations[lang];
+    document.querySelectorAll('[data-key]').forEach(el => {
+        const key = el.getAttribute('data-key');
+        if(t[key]) el.innerText = t[key];
+    });
+
+    document.querySelectorAll('[data-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-placeholder');
+        if(t[key]) el.placeholder = t[key];
+    });
+}
+
 function toggleDropdown() {
     const drop = document.getElementById("scheduleDropdown");
     drop.style.display = drop.style.display === "block" ? "none" : "block";
 }
 
-function setSchedule(type) {
-    document.getElementById("scheduleText").innerText = type;
+function setSchedule(text, key) {
+    const span = document.getElementById("scheduleText");
+    span.innerText = translations[currentLang][key] || text;
+    span.setAttribute('data-key', key);
     document.getElementById("scheduleDropdown").style.display = "none";
     
-    if(type === 'Schedule later') {
+    if(text.includes('Schedule') || text.includes('ಶೆಡ್ಯೂಲ್')) {
         isScheduled = true;
         document.getElementById("dateBox").style.display = "block";
         document.getElementById("timeBox").style.display = "block";
@@ -328,7 +618,6 @@ function setSchedule(type) {
     }
 }
 
-/* CALLBACK MODAL FUNCTIONS */
 function openCallbackModal() {
     document.getElementById("callbackModal").style.display = "flex";
 }
@@ -347,6 +636,63 @@ function sendCallback() {
     window.open(cbUrl, "_blank");
 }
 
+/* SOS MODAL FUNCTIONS */
+function openSosModal() {
+    document.getElementById("sosModal").style.display = "flex";
+}
+function closeSosModal() {
+    document.getElementById("sosModal").style.display = "none";
+}
+
+/* RIDE HISTORY FUNCTIONS */
+function openHistoryModal() {
+    let history = JSON.parse(localStorage.getItem('taizorRidesHistory')) || [];
+    let container = document.getElementById("historyListContainer");
+    container.innerHTML = "";
+
+    if(history.length === 0) {
+        container.innerHTML = `<p style="color:#a1a1aa; font-size:12px;">No past rides found.</p>`;
+    } else {
+        history.forEach((ride, index) => {
+            container.innerHTML += `
+                <div class="history-item">
+                    <div><b>#${index+1} - Tata Taizor (${ride.tripType})</b></div>
+                    <div>From: <span>${ride.pickup}</span></div>
+                    <div>To: <span>${ride.drop}</span></div>
+                    <div style="font-size:10px; color:#71717a; margin-top:2px;">${ride.time}</div>
+                    <button class="repeat-ride-btn" onclick="repeatRideWhatsApp('${ride.pickup}', '${ride.drop}', '${ride.tripType}')">
+                        <i class="fa-brands fa-whatsapp"></i> Repeat Ride (WhatsApp)
+                    </button>
+                </div>`;
+        });
+    }
+    document.getElementById("historyModal").style.display = "flex";
+}
+
+function closeHistoryModal() {
+    document.getElementById("historyModal").style.display = "none";
+}
+
+function repeatRideWhatsApp(pickup, drop, tripType) {
+    let msg = `🚖 CAB SERVICE BOOKING (${tripType.toUpperCase()} - REPEAT)\n━━━━━━━━━━━━━━━━━━\n🚗 Vehicle: Tata Taizor\n📍 Pickup: ${pickup}\n🏁 Drop: ${drop}`;
+    let repeatUrl = "https://wa.me/916362635718?text=" + encodeURIComponent(msg);
+    closeHistoryModal();
+    window.open(repeatUrl, "_blank");
+}
+
+function saveRideToHistory(pickup, drop, tripType) {
+    let history = JSON.parse(localStorage.getItem('taizorRidesHistory')) || [];
+    let newRide = {
+        pickup: pickup,
+        drop: drop,
+        tripType: tripType,
+        time: new Date().toLocaleString()
+    };
+    history.unshift(newRide);
+    if(history.length > 5) history.pop();
+    localStorage.setItem('taizorRidesHistory', JSON.stringify(history));
+}
+
 function openPopup(){
     let pickup = document.getElementById("pickup").value.trim();
     let drop = document.getElementById("drop").value.trim();
@@ -362,16 +708,16 @@ function openPopup(){
     if(!pickup || !drop){
         modalBox.className = "modal-card error";
         modalIcon.className = "fa-solid fa-circle-exclamation";
-        modalTitle.innerText = "Missing Locations!";
-        modalDesc.innerText = "Please enter both pickup and dropoff locations.";
+        modalTitle.innerText = currentLang === 'kn' ? 'ಸ್ಥಳಗಳು ಅಪೂರ್ಣವಾಗಿವೆ!' : (currentLang === 'tu' ? 'ಸ್ಥಳ ಪಾಡ್‌ಜಿ!' : 'Missing Locations!');
+        modalDesc.innerText = currentLang === 'kn' ? 'ದಯವಿಟ್ಟು ಪಿಕ್ಅಪ್ ಮತ್ತು ಡ್ರಾಪ್ ಎರಡೂ ಸ್ಥಳಗಳನ್ನು ನಮೂದಿಸಿ.' : (currentLang === 'tu' ? 'ದಯವಿಟ್ಟು ಪಿಕ್ಅಪ್ ಬೊಕ್ಕ ಡ್ರಾಪ್ ಜಾಗನ್ ಬರೆಯಿರಿ.' : 'Please enter both pickup and dropoff locations.');
         modalBtn.className = "modal-btn error-btn";
-        modalBtn.innerHTML = "Try Again";
+        modalBtn.innerHTML = currentLang === 'kn' ? 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ' : (currentLang === 'tu' ? 'ೊಮ್ಮೆ ಪ್ರಯತ್ನಿಸಿ' : 'Try Again');
         modalBtn.onclick = closePopup;
         document.getElementById("customModal").style.display = "flex";
         return;
     }
 
-    let msg = `🚖 CAB SERVICE BOOKING\n━━━━━━━━━━━━━━━━━━\n🚗 Vehicle: Tata Taizor\n⏱ Type: ${scheduleType}\n📍 Pickup: ${pickup}\n🏁 Drop: ${drop}`;
+    let msg = `🚖 CAB SERVICE BOOKING (${selectedTripType.toUpperCase()})\n━━━━━━━━━━━━━━━━━━\n🚗 Vehicle: Tata Taizor\n⏱ Type: ${scheduleType}\n📍 Pickup: ${pickup}\n🏁 Drop: ${drop}`;
 
     if(isScheduled) {
         let date = document.getElementById("date").value;
@@ -394,14 +740,16 @@ function openPopup(){
         msg += `\n💬 Note: ${message}`;
     }
 
+    saveRideToHistory(pickup, drop, selectedTripType);
+
     whatsappURL = "https://wa.me/916362635718?text=" + encodeURIComponent(msg);
 
     modalBox.className = "modal-card";
     modalIcon.className = "fa-solid fa-circle-check";
-    modalTitle.innerText = "Ready to Book";
-    modalDesc.innerText = "Click below to send details via WhatsApp.";
+    modalTitle.innerText = translations[currentLang].modalReadyTitle;
+    modalDesc.innerText = translations[currentLang].modalReadyDesc;
     modalBtn.className = "modal-btn";
-    modalBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> Open WhatsApp Now';
+    modalBtn.innerHTML = '<i class="fa-brands fa-whatsapp"></i> ' + translations[currentLang].modalWaBtn;
     modalBtn.onclick = proceedToWhatsApp;
     
     document.getElementById("customModal").style.display = "flex";
